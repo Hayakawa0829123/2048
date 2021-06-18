@@ -58,7 +58,7 @@ public class AutoSimple : AutoBase
                     continue;
                 for (int direc = 0; direc < canMoveDirection.Length; direc++)
                 {
-                    if (CheckCanMove((PieceManager.MoveDirection)direc, new PieceManager.PieceCellPosition(w, h)))
+                    if (CheckCanMove((PieceManager.MoveDirection)direc, new PieceCellPosition(w, h)))
                     {
                         canMoveDirection[direc] = true;
                     }
@@ -103,7 +103,7 @@ public class AutoSimple : AutoBase
         {
             for (int w = 0; w < PieceManager.Width; w++)
             {
-                var pos = new PieceManager.PieceCellPosition(w, h);
+                var pos = new PieceCellPosition(w, h);
                 if (!CheckExceptionPosition(pos))
                 {
                     var num = numList[pos.y, pos.x];
@@ -153,10 +153,10 @@ public class AutoSimple : AutoBase
         }
         return default;
     }
-    private PieceManager.PieceCellPosition GetNextPos(
+    private PieceCellPosition GetNextPos(
             PieceManager.MoveDirection direction,
-            PieceManager.PieceCellPosition pos)
+            PieceCellPosition pos)
     {
-        return new PieceManager.PieceCellPosition(GetDirection(direction), pos);
+        return new PieceCellPosition(GetDirection(direction), pos);
     }
 }

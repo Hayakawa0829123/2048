@@ -35,15 +35,15 @@ public abstract class AutoBase : MonoBehaviour
     {
         return pieceManager.moveTime;
     }
-    protected PieceManager.PieceCellPosition GetDirection(PieceManager.MoveDirection direction)
+    protected PieceCellPosition GetDirection(PieceManager.MoveDirection direction)
     {
         return pieceManager.GetDirectionPos(direction);
     }
-    protected bool CheckExceptionPosition(PieceManager.PieceCellPosition checkPos)
+    protected bool CheckExceptionPosition(PieceCellPosition checkPos)
     {
         return pieceManager.CheckException(checkPos);
     }
-    protected bool CheckCanMove(PieceManager.MoveDirection direction, PieceManager.PieceCellPosition checkPos)
+    protected bool CheckCanMove(PieceManager.MoveDirection direction, PieceCellPosition checkPos)
     {
         return pieceManager.CheckCanMovePiece(direction, checkPos);
     }

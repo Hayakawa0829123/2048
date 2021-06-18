@@ -17,24 +17,7 @@ public class PieceManager : MonoBehaviour
     /// <summary>最初に配置するピースの数</summary>
     [SerializeField] private int initializeCreatePieceNum = 3;
     [SerializeField] private float create4PieceProbability = 0.3f;
-    /// <summary>
-    /// ピースの位置（配列番号）
-    /// </summary>
-    public class PieceCellPosition
-    {
-        public int x = 0;
-        public int y = 0;
-        public PieceCellPosition(int x = 0, int y = 0)
-        {
-            this.x = x;
-            this.y = y;
-        }
-        public PieceCellPosition(PieceCellPosition pos1, PieceCellPosition pos2)
-        {
-            this.x = pos1.x + pos2.x;
-            this.y = pos1.y + pos2.y;
-        }
-    }
+
     /// <summary>ピースを移動させる枠のRectTransform</summary>
     [SerializeField] RectTransform piecesAreaTransform = null;
     /// <summary>ピースのプレファブ</summary>
@@ -314,8 +297,8 @@ public class PieceManager : MonoBehaviour
     {
         var movedPos = new PieceCellPosition(GetDirectionPos(direction), checkPos);
         return !CheckException(movedPos) &&
-        (piecesNumber[movedPos.y, movedPos.x] == -1 ||
-         piecesNumber[checkPos.y, checkPos.x] == piecesNumber[movedPos.y, movedPos.x]);
+                (piecesNumber[movedPos.y, movedPos.x] == -1 ||
+                piecesNumber[checkPos.y, checkPos.x] == piecesNumber[movedPos.y, movedPos.x]);
     }
     /// <summary>
     /// ピースの移動後の位置を返す(再起関数)

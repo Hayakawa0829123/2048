@@ -9,7 +9,7 @@ public class Piece : MonoBehaviour
 {
     [SerializeField] private Image pieceImage = null;
     [SerializeField] private Text numText = null;
-    public PieceManager.PieceCellPosition myPosition { get; set; } = new PieceManager.PieceCellPosition();
+    public PieceCellPosition myPosition { get; set; } = new PieceCellPosition();
     private int num = 0;
     public bool isOverlap { get; set; } = false;
     public bool isInactive { get; set; } = false;
@@ -18,7 +18,7 @@ public class Piece : MonoBehaviour
     {
         this.ObserveEveryValueChanged(_ => number).Subscribe(x => numText.text = x.ToString());
     }
-    public void Initialize(int num, Color color, PieceManager.PieceCellPosition myPosition = null)
+    public void Initialize(int num, Color color, PieceCellPosition myPosition = null)
     {
         if (myPosition != null)
         {
